@@ -37,7 +37,7 @@ const myServer=http.createServer((req,res)=>{
 
 //listening to the server
 
-myServer.listen(5050,()=>{
+myServer.listen(5000,()=>{
     console.log("Server is running....");
 })
 
