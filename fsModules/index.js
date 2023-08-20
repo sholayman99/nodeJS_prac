@@ -37,9 +37,43 @@ const server = http.createServer((req,res)=>{
             res.write("Successfully written");
             res.end();
         }
-       })
+       });
+
+         //rename a file in async way
+
+        /* fs.rename("demo.txt","demoNew.txt",(err)=>{
+            if(err){
+                res.writeHead(400,{"Content-Type":"text/html"});
+                res.write("Failed to rename")
+                res.end();
+    
+            }else{
+                res.writeHead(200,{"Content-Type":"text/html"});
+                res.write("Successfully rename");
+                res.end();
+            }
+         })*/
+
+
+         //delete a file in async way
+
+         fs.unlink("demo.txt",(err)=>{
+            if(err){
+                res.writeHead(400,{"Content-Type":"text/html"});
+                res.write("Failed to delete")
+                res.end();
+    
+            }else{
+                res.writeHead(200,{"Content-Type":"text/html"});
+                res.write("Successfully deleted");
+                res.end();
+            }
+         })
 
       }
+
+
+    
 
 
         //read file data by fs in sync way
