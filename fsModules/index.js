@@ -21,9 +21,43 @@ const server = http.createServer((req,res)=>{
         res.write(data);
         res.end();
       })
+
+      //writing a file by fs in async way
+
+      if(req.url == "/"){
+
+       fs.writeFile("demo.txt","Hello World!!!!!!",(err)=>{
+        if(err){
+            res.writeHead(400,{"Content-Type":"text/html"});
+            res.write("Failed to write")
+            res.end();
+
+        }else{
+            res.writeHead(200,{"Content-Type":"text/html"});
+            res.write("Successfully written");
+            res.end();
+        }
+       })
+
+      }
+
+
+        //read file data by fs in sync way
+
+       /* const myData = fs.readFileSync("Home.html" )
+
+        res.writeHead(200,{"Content-Type":"text/html"});
+        res.write(myData);
+        res.end();*/
       
 
     });
+
+  
+    
+      
+
+   
 
 
 
